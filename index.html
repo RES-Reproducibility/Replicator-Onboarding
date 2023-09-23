@@ -406,7 +406,7 @@
     </div>
 </div>
 
-  <p class="date">3 July, 2023</p>
+  <p class="date">23 September, 2023</p>
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
@@ -604,12 +604,12 @@
 <section id="replicator-availability-on-ss" class="slide level2">
 <h2>Replicator Availability on <strong>SS</strong></h2>
 <ul>
-<li><p>The replicators declare their <em>current</em> availability to handle papers in the corresponding section of the <code>SS</code>,</p></li>
-<li><p>by modifying column <code>Availab.</code></p></li>
-<li><p><code>Availab. = 2</code> would mean that the replicator can handle 2 packages <em>starting today</em>:</p></li>
+<li><p>The replicators declare their <em>current</em> availability to handle papers in the <code>SS</code>, tab <code>Replicator-Availability</code></p></li>
+<li><p>by modifying column <code>Available to take on today (Replicators edit this column!)</code></p></li>
+<li><p>Setting this column to 2 would mean that the replicator can handle 2 packages <em>starting today</em>:</p></li>
 </ul>
 
-<img data-src="images/step3.png" class="r-stretch quarto-figure-center"><p class="caption">Replicator Availability</p></section>
+<img data-src="images/step3.png" class="r-stretch"></section>
 <section id="replicator-timeline" class="slide level2">
 <h2>Replicator Timeline</h2>
 <ol type="1">
@@ -636,19 +636,41 @@
 <section id="workflow-in-detail" class="slide level2">
 <h2>Workflow in Detail</h2>
 <p><strong>Dropbox Setup</strong>:</p>
-<pre><code>├── 1 Key documents
-├── 2. Submitted replication packages    &lt;-----
-├── 3. Replication reports               &lt;-----
-├── 4. Background documents 
-└── 5. Back office Data Editor</code></pre>
+<pre><code>.
+├── EJ-1-key-documents
+├── EJ-2-submitted-replication-packages  &lt;----
+├── EJ-3-replication-reports             &lt;----
+├── EJ-4-background-documents
+├── EJ-5-back-office-data-editor
+├── EJ-6-good-to-go
+└── EJ-7-published-packages</code></pre>
 <ol type="1">
-<li>Replicator navigates to shared <code>DB</code> folder <code>2. Submitted replication packages</code>, and looks for the correct submission number and Author names.</li>
-<li>Downloads a <strong>copy</strong> of <code>3. Replication Package</code> to their local drive.</li>
-<li>initiates a <code>git</code> repository on local machine to track code.</li>
+<li>Replicator navigates to shared <code>DB</code> folder <code>EJ-2-submitted-replication-packages</code>, and looks for the correct submission number and Author names.</li>
+<li>Downloads a <strong>copy</strong> of the package to their local drive.</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .  <span class="co"># the `.` adds everything in current dir</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">'initial check-in of code'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="naming-conventions" class="slide level2">
+<h2>Naming Conventions</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Naming Convention</strong></p>
+</div>
+<div class="callout-content">
+<p>Folders and Files <em>must</em> adhere to the naming convention <code>Lastname-XXXXXXXX</code> where <code>XXXXXXXX</code> is the MS number of the paper.</p>
+</div>
+</div>
+</div>
+<p>This means:</p>
+<ol type="1">
+<li>in <code>EJ-2-submitted-replication-packages</code>, look out for Author’s last name and corresponding MS number.</li>
+<li>In your report, use this exact naming convention, together with the revision number. That is, use</li>
+</ol>
+<pre><code>Lastname-XXXXXXXX-R2.doc</code></pre>
+<p>in revision 2.</p>
 </section>
 <section id="workflow-in-detail-2" class="slide level2">
 <h2>Workflow in Detail 2</h2>
@@ -656,7 +678,7 @@
 <li>Replicator starts clock. ⏰</li>
 <li>Replicator studies the package, follows contained instructions, and tries to reproduce all results in the paper. If the contained instructions are insufficiently precise so that after 60 minutes the replicator has not gained an understanding of how they <em>will be able</em> to reproduce certain results, we abort and go to the next step. This does <em>not</em> include actual runtime, which can be significantly longer.</li>
 <li>Replicator stops clock. ⏰ (Again, if program requires significant runtime, this is not billed as replicator time.)</li>
-<li>Fills in reproducibility report, a template for which is stored in shared <code>DB</code> at <code>3. Replication reports</code></li>
+<li>Fills in reproducibility report, a template for which is stored in shared <code>DB</code> at <code>EJ-3-replication-reports</code></li>
 </ol>
 </section>
 <section id="workflow-in-detail-3" class="slide level2">
@@ -712,17 +734,15 @@
 <li>After upload of authors, we will compute our version of the <code>md5</code> string on the accepted version of the replication package, located here in the shared <code>DB</code>:</li>
 </ul>
 <pre><code>
-├── 2. Submitted replication packages
-    ├── MS_NUMBER_OF_PAPER
-        ├── 3. Replication Package</code></pre>
+├── EJ-2-submitted-replication-packages
+    ├── Lastname-XXXXXXXX-R3
+        ├── 3-replication-package.zip</code></pre>
 <ul>
-<li>The computation of the <code>md5</code> on our side is straightfoward. In <code>R</code>, for example, one would run command</li>
+<li>The computation of the <code>md5</code> on our side is straightfoward. On a Linux command line one would run</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume we navigated into the above directory in `DB`</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># can run this on command line or directly in `R`</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> tools::md5sum<span class="kw">(</span><span class="st">"3 Replication package.zip"</span><span class="kw">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>         <span class="ex">3</span> Replication package.zip </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">"93b6634a97954d6cbfefa56f9dff315e"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> md5sum 3-replication-package.zip</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">93b6634a97954d6cbfefa56f9dff315e</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>The string <code>"93b6634a97954d6cbfefa56f9dff315e"</code> needs to match the string on zenodo, or the paper will not be released for publication.</li>
 </ul>
